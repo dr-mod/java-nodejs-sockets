@@ -2,13 +2,15 @@ var net = require('net');
 
 var PORT = 6778;
 
+function writeData(out) {
+	return function(data) {
+		out.write(data);
+	}
+}
+
 function initialize(socket) {
-	socket.on('data', function(data) {
-		process.stdout.write(data);	
-	});
-	process.openStdin().addListener('data', function(data) {
-		socket.write(data);
-	});
+	socket.on('data', writeData(process.stdout));
+	process.openStdin().addListener('data', writeData(socket));
 }
 
 if (typeof process.argv[2] === 'string') {
