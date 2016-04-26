@@ -1,7 +1,9 @@
 #Start either as a server:
-*java Chat
-*node chat.js
+
+1. java Chat
+2. node chat.js
 
 #Start either as a client:
-*java Chat 127.0.0.1
-*node chat.js 127.0.0.1
+
+1. java Chat 127.0.0.1
+2. node chat.js 127.0.0.1
